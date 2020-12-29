@@ -5,17 +5,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Required packages
 
-npm install redux
-npm install material-ui/core
-npm install lodash
-npm install @material-ui/icons
-npm install formik --save
-npm install react react-dom --save
-npm install redux react-redux --save
-npm install redux-thunk --save
-npm install --save react-router-dom
-npm install -S yup
-npm install @material-ui/lab
+npm install redux\
+npm install material-ui/core\
+npm install lodash\
+npm install @material-ui/icons\
+npm install formik --save\
+npm install react react-dom --save\
+npm install redux react-redux --save\
+npm install redux-thunk --save\
+npm install --save react-router-dom\
+npm install -S yup\
+npm install @material-ui/lab\
 
 ## Available Scripts
 
