@@ -22,6 +22,7 @@ class SignIn extends Component {
         password: '',
         email: ''
     };
+
     handleButtonClick() {
         if (this.state.email === 'barsnik96@gmail.com' && this.state.password === '123')
         {
@@ -60,11 +61,10 @@ class SignIn extends Component {
         }));
         const classes = useStyles;
 
-        const validationsSchema = yup.object().shape(
-            {
+        const validationsSchema = yup.object().shape({
             email: yup.string().email('Invalid email').required('Required field'),
             password: yup.string().typeError('Should be a string').required('Required field')
-            })
+        })
 
         return (
             <Formik
@@ -74,12 +74,12 @@ class SignIn extends Component {
                 }}
                 valideateOnBlur
                 onSubmit={(values)=>(
-                this.setState({
-                    email: values.email,
-                    password: values.password
-                }),
-                console.log(this.state), 
-                this.handleButtonClick()         
+                    this.setState({
+                        email: values.email,
+                        password: values.password
+                    }),
+                    console.log(this.state), 
+                    this.handleButtonClick()         
                 )}
                 validationSchema={validationsSchema}
             >
@@ -105,7 +105,7 @@ class SignIn extends Component {
                             name={'email'}
                             autoComplete="email"
                             value={values.email}
-                            onChange={this.handleChange}
+                            onChange={handleChange}
                             onBlur={handleBlur}
                         />
                         {touched.email && errors.email && <p>{errors.email}</p>}
@@ -117,7 +117,6 @@ class SignIn extends Component {
                             fullWidth
                             name={'password'}
                             label="Password"
-                            // eslint-disable-next-line react/jsx-no-duplicate-props
                             type="password"
                             id="password"
                             value={values.password}

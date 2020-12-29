@@ -2,14 +2,14 @@ export function users()
 {
 return [{
         id: 1,
-        email: 'text1',
-        firstname: 'text2',
-        lastname: 'text3',
+        firstname: 'Logged',
+        lastname: 'User1',
+        email: 'user1@mail.com'
     }, 
     {
         id: 2,
-        email: 'text4',
-        firstname: 'text5',
-        lastname: 'text6'
+        firstname: 'Logged',
+        lastname: 'User2',
+        email: 'user2@mail.com'
     }]    
 }

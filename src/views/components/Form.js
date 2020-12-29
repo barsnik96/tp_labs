@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { add_user } from '../../redux/actionsCreators/Creators';
+import Snackbar from '@material-ui/core/Snackbar';
+import Slide from '@material-ui/core/Slide';
 
 class Form extends Component {
     constructor(props) {
@@ -10,10 +12,13 @@ class Form extends Component {
             id: 2,
             firstname: '',
             lastname: '',
-            email: ''
+            email: '',
+            open: false,
+            transition: undefined
         };
 
     }
+    
     handleChange = event => {
         const { name, value } = event.target;
 
@@ -36,13 +41,19 @@ class Form extends Component {
         })
     };
 
+    TransitionUp(props) {
+        return <Slide {...props} direction="up" />;
+    }
+
+    onSnackbarOpen(Transition) {
+        this.setState(state => ({ transition: Transition, open: true }))
+    }
+
     render() {
         const { firstname, lastname, email } = this.state;
 
         return (
-
             <form onSubmit={this.onFormSubmit}>
-
                 <div class="block"><label for="firstname">FirstName</label>
                     <input
                         type="text"
@@ -75,9 +86,19 @@ class Form extends Component {
                 </div >
 
                 <div class="block1">
-                    <button type="submit" onClick={this.onClickUp}>
+                    <button type="submit" onClick={this.onClickUp, () => this.setState({ open: true, transition: this.TransitionUp })}> 
                         Add User
                     </button>
+                    <Snackbar                    
+                        anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
+                        open={this.state.open}
+                        onClose={() => this.setState({ open: false })}
+                        TransitionComponent={this.state.transition}
+                        message="User added!"
+                        key={this.state.transition ? this.state.transition.name : ''}
+                        autoHideDuration={2000}
+                        transitionDuration={500}
+                    />
                 </div>
 
                 <h3>Users</h3>

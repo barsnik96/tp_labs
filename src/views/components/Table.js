@@ -22,12 +22,7 @@ const TableBody = props => {
                 <td>{row.firstname}</td>
                 <td>{row.lastname}</td>
                 <td>{row.email}</td>
-                <td><button onClick={ function(){ 
-                    props.removeCharacter(row.id); 
-                    props.handleSubmit(props.characterData); 
-                    }.bind(this)}>Delete
-                    </button>
-                </td>
+                <td><button onClick={ function(){ props.removeCharacter(row.id); props.handleSubmit(props.characterData); }.bind(this)}>Delete</button></td>
             </tr>
         );
     });
@@ -36,7 +31,7 @@ const TableBody = props => {
 }
 
 const Table = (props) => {
-    const { characterData, removeCharacter, handleSubmit } = props;
+    const { characterData, removeCharacter, handleSubmit} = props;
         return (
             <table>
                 <TableHeader />
@@ -44,5 +39,4 @@ const Table = (props) => {
             </table>
         );
 }
-
 export default Table;

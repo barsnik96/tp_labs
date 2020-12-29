@@ -4,8 +4,7 @@ import Table from './Table';
 import Form from './Form';
 import { connect } from 'react-redux';
 import { delete_user } from '../../redux/actionsCreators/Creators';
-
-
+import FooterThunkButton from './FooterThunkButton';
 
 class App extends Component {
     state = {
@@ -31,6 +30,7 @@ class App extends Component {
                     characterData={characters}
                     removeCharacter={this.props.removeCharacter}
                 />
+                <FooterThunkButton/>
             </div>
         );
     }
@@ -40,7 +40,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        data: state.tab_reducer
+        data: state.table_reducer
     };
 };
 
